@@ -1,6 +1,44 @@
 export type Language = "tr" | "en";
 
-export const TRANSLATIONS = {
+export type TranslationShape = {
+  appName: string;
+  header: {
+    excel: string;
+    proposeKpi: string;
+  };
+  sidebar: {
+    view: string;
+    allKpis: string;
+    favorites: string;
+    top10: string;
+    categories: string;
+    all: string;
+  };
+  search: {
+    placeholder: string;
+    results: (n: number) => string;
+    loading: string;
+  };
+  views: {
+    top10Title: string;
+    favoritesTitle: string;
+    noFavorites: string;
+    noFavoritesHint: string;
+    noResults: string;
+  };
+  card: {
+    likes: string;
+    direction: Record<string, string>;
+  };
+  auth: {
+    modalTitle: string;
+    modalDesc: string;
+    loginBtn: string;
+    notNow: string;
+  };
+};
+
+export const TRANSLATIONS: Record<Language, TranslationShape> = {
   tr: {
     appName: "KPI Archive",
     header: {
@@ -81,7 +119,7 @@ export const TRANSLATIONS = {
       notNow: "Not now",
     },
   },
-} as const;
+};
 
 export const CATEGORY_TRANSLATIONS: Record<string, { tr: string; en: string }> = {
   "Arge": { tr: "Arge", en: "R&D" },
