@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "KPI Archive",
@@ -14,15 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="antialiased bg-gray-50">
+      <body className={`${montserrat.className} antialiased bg-gray-50`}>
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
