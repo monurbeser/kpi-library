@@ -9,9 +9,11 @@ import {
   saveLanguage,
 } from "@/lib/i18n";
 
+type TranslationSet = (typeof TRANSLATIONS)[Language];
+
 interface LanguageContextValue {
   lang: Language;
-  t: typeof TRANSLATIONS["tr"];
+  t: TranslationSet;
   setLang: (lang: Language) => void;
   toggle: () => void;
 }
